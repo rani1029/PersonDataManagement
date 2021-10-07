@@ -9,13 +9,17 @@ namespace PersonDataManagementLamda
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to person data Management!");
+
             //creating list of person 
             List<Person> Personlist = new List<Person>();
             AddPersonDetails(Personlist);
             IteratePersoninList(Personlist);
             //RetrieveTopTwoRecords(Personlist);
+
             //uc3
             RetrieveAgeRange(Personlist);
+            //UC4
+            RetrieveAverageAge(Personlist);
 
 
         }
@@ -72,6 +76,14 @@ namespace PersonDataManagementLamda
             Console.WriteLine("Records having Age between 13 to 18");
             IteratePersoninList(Resultlist);
         }
+        // UC-4 Average age
+        public static void RetrieveAverageAge(List<Person> Personlist)
+        {
+            double AverageAge = Personlist.Average<Person>(person => person.Age);
+            Console.WriteLine("AverageAge in the list is " + AverageAge);
+
+        }
+
 
 
 
