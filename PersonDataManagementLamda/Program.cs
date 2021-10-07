@@ -13,7 +13,9 @@ namespace PersonDataManagementLamda
             List<Person> Personlist = new List<Person>();
             AddPersonDetails(Personlist);
             IteratePersoninList(Personlist);
-            RetrieveTopTwoRecords(Personlist);
+            //RetrieveTopTwoRecords(Personlist);
+            //uc3
+            RetrieveAgeRange(Personlist);
 
 
         }
@@ -38,23 +40,37 @@ namespace PersonDataManagementLamda
         //UC-2 to get Top 2 records age less than 60
         public static void RetrieveTopTwoRecords(List<Person> Personlist)
         {
-            ////Age less than 60
+            //Age less than 60 using Lambda Expresion 
+
             //List<Person> AgeLessThanSixty = Personlist.FindAll(person => person.Age < 60);
             //Console.WriteLine("Displaying person details if age is less than 60");
             //IteratePersoninList(AgeLessThanSixty);
-            ////sorted list
+
+            //sorted list
+
             //List<Person> AsecendingList = AgeLessThanSixty.OrderBy(age => age.Age).ToList();
             //Console.WriteLine(" person details after sorting by Age");
             //IteratePersoninList(AsecendingList);
-            ////sorted top two
+
+            //sorted top two records
+
             //List<Person> TopTwo = AsecendingList.Take(2).ToList();
             //Console.WriteLine("Top Two records of Age less than sixty");
             //IteratePersoninList(TopTwo);
+
             //All 3 can steps in one Line 
+
             List<Person> SortedResult = Personlist.FindAll(person => person.Age < 60).OrderBy(age => age.Age).Take(2).ToList();
             Console.WriteLine("Top Two records of Age less than sixty");
             IteratePersoninList(SortedResult);
 
+        }
+        //UC-3 Retrieve Reccords between age 13 to 18
+        public static void RetrieveAgeRange(List<Person> Personlist)
+        {
+            List<Person> Resultlist = Personlist.FindAll(person => person.Age > 13 && person.Age < 18);
+            Console.WriteLine("Records having Age between 13 to 18");
+            IteratePersoninList(Resultlist);
         }
 
 
