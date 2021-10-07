@@ -23,7 +23,7 @@ namespace PersonDataManagementLamda
             Personlist.Add(new Person(){SSN = 5, Name = "rashi", Address = "Kolkta", Age = 16});
             Personlist.Add(new Person(){SSN = 6, Name = "Sumit", Address = "chennai", Age = 68});
         }
-        //display Person details in  List
+        //display Person details in the List
         public static void IteratePersoninList(List<Person> Personlist)
             {
             foreach(Person person in Personlist)
