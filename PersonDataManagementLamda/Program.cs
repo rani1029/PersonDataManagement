@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace PersonDataManagementLamda
 {
     class Program
@@ -20,6 +21,8 @@ namespace PersonDataManagementLamda
             RetrieveAgeRange(Personlist);
             //UC4
             RetrieveAverageAge(Personlist);
+            //UC5
+            SearchByName(Personlist);
 
 
         }
@@ -83,9 +86,34 @@ namespace PersonDataManagementLamda
             Console.WriteLine("AverageAge in the list is " + AverageAge);
 
         }
+        //Search specific Name in the records
 
+        public static void SearchByName(List<Person> Personlist)
+        {
+            try
+            {
+                Console.WriteLine("Enter the name to search in list");
+                string SearchName = Console.ReadLine();
+                var SearchResult = Personlist.Find(person => person.Name == SearchName);
 
+                if (SearchResult != null)
+                {
+                    Console.WriteLine("The name is Present having SSN" + SearchResult.SSN + " " + SearchResult.Name);
+                }
+                else
+                    Console.WriteLine("The name is not present");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
 
     }
+
+
+
+
 }
+
